@@ -1,0 +1,572 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cobro inicial en proceso</title>
+    <style>
+      /* -------------------------------------
+          GLOBAL RESETS
+      ------------------------------------- */
+      
+      /*All the styling goes here*/
+      
+      img {
+        border: none;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%; 
+      }
+
+      body {
+        background-color: #f6f6f6;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%; 
+      }
+
+      table {
+        border-collapse: separate;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        width: 100%; }
+        table td {
+          font-family: sans-serif, Sf;
+          font-size: 14px;
+          vertical-align: top; 
+      }
+
+      /* -------------------------------------
+          BODY & CONTAINER
+      ------------------------------------- */
+
+      .body {
+        background-color: #f6f6f6;
+        width: 100%; 
+      }
+
+      /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+      .container {
+        display: block;
+        margin: 0 auto !important;
+        /* makes it centered */
+        max-width: 580px;
+        padding: 10px;
+        width: 580px; 
+      }
+
+      /* This should also be a block element, so that it will fill 100% of the .container */
+      .content {
+        box-sizing: border-box;
+        display: block;
+        margin: 0 auto;
+        max-width: 580px;
+        padding: 10px; 
+      }
+
+      /* -------------------------------------
+          HEADER, FOOTER, MAIN
+      ------------------------------------- */
+      .main {
+        background: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%; 
+      }
+
+      .wrapper {
+        box-sizing: border-box;
+        padding: 20px; 
+      }
+
+      .content-block {
+        padding-bottom: 10px;
+        padding-top: 10px;
+      }
+
+      .footer {
+        clear: both;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%; 
+      }
+        .footer td,
+        .footer p,
+        .footer span,
+        .footer a {
+          color: #999999;
+          font-size: 12px;
+          text-align: center; 
+      }
+
+      /* -------------------------------------
+          TYPOGRAPHY
+      ------------------------------------- */
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #000000;
+        font-family: sans-serif;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0;
+        margin-bottom: 30px; 
+      }
+
+      h1 {
+        font-size: 35px;
+        font-weight: 300;
+        text-align: center;
+        text-transform: capitalize; 
+      }
+
+      /* p, */
+      ul,
+      ol {
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 15px; 
+      }
+        p li,
+        ul li,
+        ol li {
+          list-style-position: inside;
+          margin-left: 5px; 
+      }
+
+      a {
+        color: #3498db;
+        text-decoration: underline; 
+      }
+
+      /* -------------------------------------
+          BUTTONS
+      ------------------------------------- */
+      .btn {
+        box-sizing: border-box;
+        width: 100%; }
+        .btn > tbody > tr > td {
+          padding-bottom: 15px; }
+        .btn table {
+          width: auto; 
+      }
+        .btn table td {
+          background-color: #ffffff;
+          border-radius: 5px;
+          text-align: center; 
+      }
+        .btn a {
+          background-color: #ffffff;
+          border: solid 1px #3498db;
+          border-radius: 5px;
+          box-sizing: border-box;
+          color: #3498db;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 14px;
+          font-weight: bold;
+          margin: 0;
+          padding: 12px 25px;
+          text-decoration: none;
+          text-transform: capitalize; 
+      }
+
+      .btn-primary table td {
+        background-color: #3498db; 
+      }
+
+      .btn-primary a {
+        background-color: #3498db;
+        border-color: #3498db;
+        color: #ffffff; 
+      }
+
+      /* -------------------------------------
+          OTHER STYLES THAT MIGHT BE USEFUL
+      ------------------------------------- */
+      .dkt-none {
+        display: none;
+      }
+      .show-mobile {
+            display: none;
+        }
+      .last {
+        margin-bottom: 0; 
+      }
+
+      .first {
+        margin-top: 0; 
+      }
+
+      .align-center {
+        text-align: center; 
+      }
+
+      .align-right {
+        text-align: right; 
+      }
+
+      .align-left {
+        text-align: left; 
+      }
+
+      .clear {
+        clear: both; 
+      }
+
+      .mt0 {
+        margin-top: 0; 
+      }
+
+      .mb0 {
+        margin-bottom: 0; 
+      }
+
+      .preheader {
+        color: transparent;
+        display: none;
+        height: 0;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+        visibility: hidden;
+        width: 0; 
+      }
+
+      .powered-by a {
+        text-decoration: none; 
+      }
+
+      hr {
+        border: 0;
+        border-bottom: 1px solid #f6f6f6;
+        margin: 20px 0; 
+      }
+
+      /* -------------------------------------
+          RESPONSIVE AND MOBILE FRIENDLY STYLES
+      ------------------------------------- */
+      @media only screen and (max-width: 620px) {
+        table {
+          border-collapse: collapse !important;
+          border-spacing: 0 !important;
+          padding: 0 !important;
+        }
+        p {
+          font-family: sans-serif !important;
+          -webkit-font-smoothing: antialiased !important;
+        }
+        table.body h1 {
+          font-size: 28px !important;
+          margin-bottom: 10px !important; 
+        }
+        /* table.body p, */
+        table.body ul,
+        table.body ol,
+        table.body td,
+        table.body span,
+        table.body a {
+          font-size: 16px !important; 
+        }
+        /* ajustes para padding en bordes mobile - eliminart whitespace superior y sup-izq */
+        table.body .wrapper,
+        table.body .article {
+          padding: 0px !important; 
+        }
+        .add-padding-mob {
+          padding: 0 20px !important;
+        }
+        table.body .content {
+          padding: 0 !important; 
+        }
+        table.body .container {
+          padding: 0 !important;
+          width: 100% !important; 
+        }
+        table.body .main {
+          border-left-width: 0 !important;
+          border-radius: 0 !important;
+          border-right-width: 0 !important; 
+        }
+        table.body .btn table {
+          width: 100% !important; 
+        }
+        table.body .btn a {
+          width: 100% !important; 
+        }
+        table.body .img-responsive {
+          height: auto !important;
+          max-width: 100% !important;
+          width: auto !important; 
+        }
+        .mob-fs-16 {
+          font-size: 16px !important;
+          line-height: 27px !important;
+        }
+        .mob-fs-26 {
+          font-size: 26px !important;
+        }
+        .m-l-18 {
+            margin-left: 18px !important;
+        }
+        .hide-mobile {
+           display: none !important;
+        }
+        .mob-align-center {
+           text-align: center !important;
+           padding-right: 0 !important;
+           padding-top: 0 !important;
+        }
+        .show-mobile {
+            display: block !important;
+        }
+        .add-padding-mob {
+          padding: 0 20px !important;
+        }
+        .hide-in-mobile {
+          display: none !important;
+        }
+        .dkt-none {
+          display: block !important;
+        }
+        .m-fs-20-5 {
+          font-size: 20.5px !important;
+        }
+        .p-top-mob {
+          padding-top: 20px !important;
+        }
+      }
+
+      /* -------------------------------------
+          PRESERVE THESE STYLES IN THE HEAD
+      ------------------------------------- */
+      @media all {
+        .ExternalClass {
+          width: 100%; 
+        }
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+          line-height: 100%; 
+        }
+        .apple-link a {
+          color: inherit !important;
+          font-family: inherit !important;
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          text-decoration: none !important; 
+        }
+        #MessageViewBody a {
+          color: inherit;
+          text-decoration: none;
+          font-size: inherit;
+          font-family: inherit;
+          font-weight: inherit;
+          line-height: inherit;
+        }
+        .btn-primary table td:hover {
+          background-color: #34495e !important; 
+        }
+        .btn-primary a:hover {
+          background-color: #34495e !important;
+          border-color: #34495e !important; 
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <span class="preheader"></span>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" style="padding: 14px 8px;">
+      <tr>
+        <td style="display: none;">&nbsp;</td>
+        <td class="container">
+          <div class="content" style="display: block;">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <table role="presentation" class="main" style="position: relative; overflow: hidden; border-collapse: collapse;">
+              
+                
+              <!-- START MAIN CONTENT AREA -->
+              <!-- IMAGE ROW -->
+              <tr>
+                <td class="o_bg-light o_px-xs o_pt-lg o_xs-pt-xs" align="center" style="background-color: #dbe5ea;padding:0;">
+                    <table class="o_block-lg" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 800px;margin: 0 auto;">
+                        <!-- MOBILE LOGO SECTION - Display none in dkt -->
+                        <tbody class="dkt-none">
+                            <tr>
+                                <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px;font-size: 16px; line-height: 24px; background-color: #FFF; text-align: start; padding-left: 30px; width: 1%;">
+                                    <img src="{{organization.logo_url}}" onerror="this.onerror=null;this.style.display='none';" alt="Rebill" style="max-width: 80px; -ms-interpolation-mode: bicubic; vertical-align: middle; border: 0; line-height: 100%; height: auto;outline: none; text-decoration: none; padding-top: 30px;" width="80" height="80">
+                                </td>
+                                <td class="o_bg-primary o_px o_py-md o_br-t o_sans o_text" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px;font-size: 16px; line-height: 24px; background-color: #FFF; text-align: end;">
+                                  <a href="#">
+                                    <img src="https://rebill-public-uploads.s3.amazonaws.com/2-emailtemplates-rebill.png" alt="corner-image" style="margin-left: 0px; width: 100px;" class="m-l-18">
+                                </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- end of MOBILE LOGO SECTION -->
+                    </table>
+                </td>
+            </tr>
+              <tr>
+                <td class="wrapper hide-in-mobile" style="padding: 0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 110px;">
+                    <tr style="vertical-align: middle;">
+                      <td style="text-align: right; width: 100%; height: 0px; margin: 0 auto;"> 
+                            <div style="max-height:0;;overflow: visible; text-align: end;">
+                                <!-- <div style="width:100px;height:100px;margin-top:0px;margin-left:0px;display:inline-block;outline:2px solid green;text-align:center;line-height:100px;font-size:50px;background:rgba(0,255,0,0.2)">
+                                    3
+                                </div> -->
+                                
+                                <img class="hide-in-mobile" src="{{organization.logo_url}}" onerror="this.onerror=null;this.style.display='none';" width="100" height="65" alt="Rebill" style="max-width: 100px; -ms-interpolation-mode: bicubic; vertical-align: middle; border: 0; line-height: 100%; height: auto;outline: none; text-decoration: none; margin-right: 240px; margin-bottom: 161px;">
+                                <a href="#">
+                                    <img src="https://rebill-public-uploads.s3.amazonaws.com/2-emailtemplates-rebill.png" alt="corner-image" style="margin-left: 13px; width: 140px;" class="m-l-18">
+                                </a>
+                            </div> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- FIRST ROW -->
+              <tr>
+                <td class="wrapper" style="padding: 0;">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td class="mob-align-center" style="text-align: end; padding-right: 20px; padding-top: 30px;">
+                        <a href="#">
+                            <img src="https://uploads.rebill.to/platform/email-images/initial-charge-in-process.png" alt="initial charge in process" width="100" height="100">
+                        </a>
+                      </td>
+                      <!-- texto para desktop -->
+                      <td class="hide-mobile" style="vertical-align: middle;">
+                        <p class="mob-fs-26" style="font-family: sohne-var,Helvetica Neue,sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; margin-bottom: 0px; padding-top: 30px;">Cobro inicial en proceso</p>   
+                      </td>
+                    </tr>
+                    <!-- texto para mobile -->
+                    <tr class="show-mobile">
+                        <td style="text-align: center; display: block; margin-top: 20px;">
+                          <p class="mob-fs-26" style="font-family: sohne-var,Helvetica Neue,sans-serif; font-weight: 700; font-size: 28px; line-height: 36px;">Cobro inicial en proceso</p>   
+                        </td>
+                      </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- SECOND ROW -->
+              <tr>
+                <td class="wrapper">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                    <tr style="vertical-align: middle;">
+                      <td style="text-align: center;" class="add-padding-mob">
+                        <p class="mob-fs-16 p-top-mob" style="max-width: 412px; text-align: center; margin: auto; font-family: sohne-var,Helvetica Neue,sans-serif; font-weight: 400; font-size: 24px; line-height: 33px; color: #AFAFAF; padding-bottom: 42px;">
+                          Hola, {{customer.firstName}}. Tu pago a {{organization.name}} está en proceso. Recibirás un nuevo correo cuando sea acreditado.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- THIRD ROW / DARKBLUE -->
+              <tr style="background-color: #033046;">
+                <td class="wrapper">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                    <tr style="vertical-align: middle;">
+                      <td style="text-align: left;" class="add-padding-mob">
+                        <p style="font-family: sohne-var,Helvetica Neue,sans-serif; max-width: 470px; text-align: left; margin: auto; font-weight: 600; font-size: 24px; line-height: 29px; color: #F5F5F5; padding: 30px 0px 16px 0px;" class="m-fs-20-5">
+                          Producto: {{payment.description}}
+                        </p>
+                        <p style="font-family: sohne-var,Helvetica Neue,sans-serif; max-width: 470px; text-align: left; margin: auto; font-weight: 499; font-size: 18px; line-height: 21px; color: #F5F5F5; padding-bottom: 16px;">
+                          Monto: {{payment.currency}} ${{payment.transaction_amount}}
+                        </p>
+                        <p style="font-family: sohne-var,Helvetica Neue,sans-serif; max-width: 470px; text-align: left; margin: auto; font-weight: 400; font-size: 16px; line-height: 19px; color: #F5F5F5; padding-bottom: 16px;">
+                          Con tu tarjeta {{card.logo}} {{card.brand}} terminada en {{card.last_four_digits}}
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- FOURTH ROW / WHITE_BG PRE-FOOTER -->
+              <tr>
+                <td class="wrapper">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                    <tr style="vertical-align: middle;">
+                      <td style="text-align: center;">
+                        <p class="mob-fs-16" style="font-family: sohne-var,Helvetica Neue,sans-serif; max-width: 493px; text-align: center; margin: auto; font-weight: 600; font-size: 14px; line-height: 17px; padding-bottom: 25px; padding-top: 34px;">
+                          Por favor, no respondas este email.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            <!-- END MAIN CONTENT AREA -->
+            </table>
+            <!-- END CENTERED WHITE CONTAINER -->
+
+            <!-- START FOOTER -->
+            <div class="footer">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="content-block" style="padding-top: 40px; padding-bottom: 69px;">
+                    <span class="apple-link">© 2023 {{organization.name}}</span>
+                    <!-- <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>. -->
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- END FOOTER -->
+
+          </div>
+        </td>
+        <td class="hide-in-mobile">&nbsp;</td>
+      </tr>
+    </table>
+
+    <style>
+      /* Queries for yahoo app width fix */
+      @media only screen and (min-width: 920px) {
+        #yiv6643856162 .yiv6643856162u-row {
+          width: auto!important;
+        }
+        #yiv0901518572 .yiv0901518572body {
+          width: auto!important;
+        }
+        .yiv6293935616hide-in-mobile {
+          margin-top: 0px !important;
+          margin-right: 154px !important;
+        }
+        #yiv4274588271 .yiv4274588271m-l-18 {
+          margin-left: 240px !important;
+        }
+        #yiv8169304480 .yiv8169304480mob-align-center {
+          padding-left: 58px !important;
+          padding-right: 0px !important;
+        }
+      }
+      @media only screen and (min-width: 100px) {
+        #yiv4274588271 .yiv4274588271m-l-18 {
+          margin-left: 107px !important;
+        }
+      }
+    </style>
+  </body>
+</html>
